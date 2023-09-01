@@ -1,11 +1,11 @@
 # BondCalculator
 
-This contract allows to compute the discount of a bond. This computation is done on the fly of a deposit. Which means that ROI of the bond is adjusted automatically. It uses the `ABDKMathQuad` library to preserve precision when math operation with floating number happens and specific functions are needed such as **ln**.
+This contract allows to compute the discount of a bond. This computation is done on the fly of a deposit. Which means that the ROI of the bond is adjusted automatically. It uses the `ABDKMathQuad` library to preserve precision when math operation with a floating number happens and specific functions are needed such as **ln**.
 
 To keep it simple:
 
-- The more we get closer to the end duration of the bond, the higher the ROI will be
-- The more we get closer to the sold target, the lower the ROI will be.
+- The closer we get to the end duration of the bond, the higher the ROI will be
+- The closer we get to the sold target, the lower the ROI will be.
 
 ## Compute ROI Bond
 
@@ -45,6 +45,8 @@ sequenceDiagram
     BondCalculator-->>+ABDKMathQuad: ln function for timeRatio
     else composedFunction == 2
     BondCalculator-->>+BondCalculator: square function for timeRatio
+    else composedFunction > 2
+    BondCalculator-->>+BondCalculator: timeRatio
     end
     BondCalculator-->>+ABDKMathQuad: fromUint(cvgExpected)
 ```

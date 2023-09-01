@@ -19,6 +19,7 @@ sequenceDiagram
     WlPresaleCvg-->>WlPresaleCvg: Compute cvgAmount
     WlPresaleCvg-->>WlPresaleCvg: MerkleProof.verify
     note over WlPresaleCvg: Check INVALID_PROOF
+    WlPresaleCvg->>WlPresaleCvg: Increment cvg for the given wl type
     note over WlPresaleCvg: Check INSUFFICIENT_AMOUNT
     note over WlPresaleCvg: Check TOO_MUCH_Q_WL
     note over WlPresaleCvg: Check NOT_ENOUGH_CVG_SUPPLY
@@ -41,6 +42,7 @@ sequenceDiagram
     NFT Owner->>+WlPresaleCvg: refillToken
     note over WlPresaleCvg: Check NOT_OWNED
     WlPresaleCvg-->>WlPresaleCvg: Compute cvgAmount
+    WlPresaleCvg->>WlPresaleCvg: Increment cvg for the given wl type
     note over WlPresaleCvg: Check TOO_MUCH_Q_WL
     WlPresaleCvg->>WlPresaleCvg: Update data for token
     WlPresaleCvg->>WlPresaleCvg: Update available CVG supply

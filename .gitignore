@@ -1,0 +1,18 @@
+node_modules
+test/Locking/logo/
+test/Staking/stakingLogo/
+.env
+coverage
+coverage.json
+.idea/*
+/yarn.lock
+#Hardhat files
+cache
+artifacts
+last-contracts-deployed.json
+scripts/charts
+docs
+.vscode
+gasReporting.md
+yarn.lock
+

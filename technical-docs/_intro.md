@@ -19,8 +19,6 @@ The aim of the audit is to cover :
 
 We, as the Convergence team, want to cover as much as possible these critical parts. Any breaches leading to a partial or a total locking of the funds will be rewarded in this audit competition.
 
-Gas optimisation, unless if it's 20% of a tx will not be rewarded.
-
 ## Contracts to audit
 
 ### VestingCvg

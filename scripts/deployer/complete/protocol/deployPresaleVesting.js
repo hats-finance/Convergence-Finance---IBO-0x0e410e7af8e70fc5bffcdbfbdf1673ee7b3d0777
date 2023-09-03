@@ -29,7 +29,6 @@ const deployPresaleVesting = async () => {
     const PRESALE_SEED_CONTRACT = "SeedPresaleCvg";
     const PRESALE_WL_CONTRACT = "WlPresaleCvg";
     const VESTING_CONTRACT = "VestingCvg";
-    const CVG_PEPE_CONTRACT = "CvgPepe";
     const IBO_CONTRACT = "Ibo";
     const BOND_CALCULATOR_CONTRACT = "BondCalculator";
     const ORACLE_CONTRACT = "CvgOracle";
@@ -48,15 +47,6 @@ const deployPresaleVesting = async () => {
         await wlPresaleContract.waitForDeployment();
         h.writeFile(PRESALE_WL_CONTRACT, await wlPresaleContract.getAddress(), LINK_PRESALE_WL_CONTRACT);
         console.log("presale wl linked");
-    }
-
-    // Link Pepe Contract
-    const LINK_PEPE_CONTRACT = "LINK_PEPE_CONTRACT";
-    if (!h.getTrigger(LINK_PEPE_CONTRACT)) {
-        const cvgPepeContract = await ethers.getContractAt(CVG_PEPE_CONTRACT, "0x822ee3715e2c15372e45a4a62376bf786ff45511");
-        await cvgPepeContract.waitForDeployment();
-        h.writeFile(CVG_PEPE_CONTRACT, await cvgPepeContract.getAddress(), LINK_PEPE_CONTRACT);
-        console.log("pepe linked");
     }
 
     const pepeWl = [user1.address, user7.address, user8.address, user9.address, user10.address];

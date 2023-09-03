@@ -6,7 +6,6 @@ const linkPreseed = require("../scripts/linkers/preseed");
 const deployers = require("../scripts/deployer/unit/index");
 const {TOKENS} = require("../scripts/config");
 const FakeLiquiditydeployer = require("../scripts/FakeLiquidityDeployer");
-const linkCvgPepe = require("../scripts/linkers/cvgPepe");
 const fakeLiquiditydeployer = new FakeLiquiditydeployer();
 
 class TestHelper extends GlobalHelper {
@@ -45,11 +44,6 @@ class TestHelper extends GlobalHelper {
         }
 
         return this.contracts;
-    };
-
-    deployCvgPepe = async () => {
-        await this._configureAccounts();
-        this.contracts = await deployers.deployCvgPepe(this.contracts, this.users);
     };
 
     /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=
